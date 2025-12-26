@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOKES SHOP - Your Online Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">LOKES SHOP</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Shop</a></li>
+                <li><a href="cart.html" class="nav-link">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li><a href="admin.html" class="nav-link">Admin</a></li>
+                <li><a href="login.html" class="nav-link">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>WELCOME TO THE LOKES SHOP</h1>
+            <p>Discover amazing products at great prices</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Filter Section -->
+        <div class="filter-section">
+            <input type="text" id="searchInput" placeholder="Search products..." class="search-box">
+            <select id="categoryFilter" class="category-filter">
+                <option value="">All Categories</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Clothing">Clothing</option>
+                <option value="Books">Books</option>
+                <option value="Home">Home & Garden</option>
+            </select>
+        </div>
+
+        <!-- Products Grid -->
+        <div class="products-grid" id="productsContainer">
+            <!-- Products will be loaded here by JavaScript -->
+        </div>
+    </main>
+
+    <!-- Product Detail Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <img id="modalProductImg" src="" alt="Product">
+                <div class="modal-info">
+                    <h2 id="modalProductName"></h2>
+                    <p id="modalProductDesc"></p>
+                    <p class="price" id="modalProductPrice"></p>
+                    <p class="stock" id="modalProductStock"></p>
+                    <div class="modal-actions">
+                        <button id="buyNowBtn" class="btn btn-primary">Buy Now</button>
+                        <button id="addToCartBtn" class="btn btn-secondary">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 LOKES SHOP. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
