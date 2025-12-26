@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - LOKES SHOP</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">LOKES SHOP</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Shop</a></li>
+                <li><a href="cart.html" class="nav-link">Cart</a></li>
+                <li><a href="admin.html" class="nav-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="checkout-wrapper">
+            <h1>Checkout</h1>
+            
+            <div class="checkout-container">
+                <!-- Shipping Details Section -->
+                <div class="checkout-section">
+                    <h2>Shipping Address</h2>
+                    <form id="addressForm" class="address-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name*</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name*</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number*</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Street Address*</label>
+                            <input type="text" id="address" name="address" placeholder="House No., Building Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="addressDetails">Address Details*</label>
+                            <input type="text" id="addressDetails" name="addressDetails" placeholder="Road Name, Area, Colony" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="city">City/Town*</label>
+                                <input type="text" id="city" name="city" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="state">State/Province*</label>
+                                <input type="text" id="state" name="state" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="zipcode">Zip Code*</label>
+                                <input type="text" id="zipcode" name="zipcode" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country*</label>
+                                <input type="text" id="country" name="country" required>
+                            </div>
+                        </div>
+
+                        <label class="checkbox">
+                            <input type="checkbox" id="saveAddress" name="saveAddress">
+                            Save this address for future use
+                        </label>
+                    </form>
+                </div>
+
+                <!-- Payment Section -->
+                <div class="checkout-section">
+                    <h2>Payment Method</h2>
+                    <form id="paymentForm" class="payment-form">
+                        <label class="radio-option">
+                            <input type="radio" name="paymentMethod" value="cod" checked>
+                            <span class="radio-label">
+                                <strong>Cash on Delivery (COD)</strong>
+                                <small>Pay when your order arrives</small>
+                            </span>
+                        </label>
+
+                        <label class="radio-option">
+                            <input type="radio" name="paymentMethod" value="upi">
+                            <span class="radio-label">
+                                <strong>UPI Payment</strong>
+                                <small>Google Pay, PhonePe, or other UPI apps</small>
+                            </span>
+                        </label>
+
+                        <label class="radio-option">
+                            <input type="radio" name="paymentMethod" value="card">
+                            <span class="radio-label">
+                                <strong>Credit/Debit Card</strong>
+                                <small>Visa, Mastercard, or Amex</small>
+                            </span>
+                        </label>
+
+                        <label class="radio-option">
+                            <input type="radio" name="paymentMethod" value="wallet">
+                            <span class="radio-label">
+                                <strong>Digital Wallet</strong>
+                                <small>PayPal or other digital wallets</small>
+                            </span>
+                        </label>
+                    </form>
+
+                    <!-- Card Details (shown when card is selected) -->
+                    <div id="cardDetails" class="payment-details hidden">
+                        <form class="card-form">
+                            <div class="form-group">
+                                <label for="cardName">Name on Card*</label>
+                                <input type="text" id="cardName" name="cardName" placeholder="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="cardNumber">Card Number*</label>
+                                <input type="text" id="cardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="expiry">Expiry Date*</label>
+                                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" maxlength="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="cvv">CVV*</label>
+                                    <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="3">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Order Summary -->
+            <div class="order-summary-section">
+                <div class="summary-card">
+                    <h3>Order Summary</h3>
+                    <div id="checkoutItems"></div>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="checkoutSubtotal">₹0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="checkoutShipping">₹0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tax:</span>
+                        <span id="checkoutTax">₹0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total Amount:</span>
+                        <span id="checkoutTotal">₹0.00</span>
+                    </div>
+
+                    <button class="btn btn-primary btn-block" id="placeOrderBtn">Place Order</button>
+                    <a href="cart.html" class="btn btn-secondary btn-block">Back to Cart</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="modal">
+        <div class="modal-content modal-success">
+            <div class="success-icon">✓</div>
+            <h2>Order Placed Successfully!</h2>
+            <p id="orderNumber"></p>
+            <p>Thank you for your order. You will receive a confirmation email shortly.</p>
+            <button class="btn btn-primary" id="continueShopBtn">Continue Shopping</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 LOKES SHOP. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="checkout.js"></script>
+</body>
+</html>
