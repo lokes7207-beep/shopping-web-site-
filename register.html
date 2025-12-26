@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - LOKES SHOP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .register-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: calc(100vh - 131px);
+            padding: 40px 20px;
+            /* Electronics Items Background */
+            background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+            overflow: hidden;
+        }
+
+        .form-section {
+            width: 100%;
+            max-width: 450px;
+            position: relative;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        /* Background Animation */
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .background-animation span {
+            position: absolute;
+            display: block;
+            list-style: none;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            animation: animate 25s linear infinite;
+            bottom: -150px;
+        }
+
+        .background-animation span:nth-child(1) { left: 25%; font-size: 80px; animation-delay: 0s; }
+        .background-animation span:nth-child(2) { left: 10%; font-size: 20px; animation-delay: 2s; animation-duration: 12s; }
+        .background-animation span:nth-child(3) { left: 70%; font-size: 20px; animation-delay: 4s; }
+        .background-animation span:nth-child(4) { left: 40%; font-size: 60px; animation-delay: 0s; animation-duration: 18s; }
+        .background-animation span:nth-child(5) { left: 65%; font-size: 20px; animation-delay: 0s; }
+        .background-animation span:nth-child(6) { left: 75%; font-size: 110px; animation-delay: 3s; }
+        .background-animation span:nth-child(7) { left: 35%; font-size: 150px; animation-delay: 7s; }
+        .background-animation span:nth-child(8) { left: 50%; font-size: 25px; animation-delay: 15s; animation-duration: 45s; }
+        .background-animation span:nth-child(9) { left: 20%; font-size: 15px; animation-delay: 2s; animation-duration: 35s; }
+        .background-animation span:nth-child(10) { left: 85%; font-size: 150px; animation-delay: 0s; animation-duration: 11s; }
+
+        @keyframes animate {
+            0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+            100% { transform: translateY(-1000px) rotate(720deg) scale(0); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">LOKES SHOP</div>
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Shop</a></li>
+                <li><a href="cart.html" class="nav-link">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li><a href="admin.html" class="nav-link">Admin</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="register-container">
+        <div class="background-animation">
+            <span></span>
+            <span>📱</span>
+            <span>🎧</span>
+            <span>📷</span>
+            <span>🎮</span>
+            <span>⌚</span>
+            <span>⌨️</span>
+            <span>🖱️</span>
+            <span>🔌</span>
+            <span>🔋</span>
+        </div>
+        <div class="form-section" style="padding: 30px; border: 1px solid var(--border-color); box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <div id="registerStep1">
+                <h2 style="text-align: center; margin-bottom: 20px;">Create Account</h2>
+                <form id="registerForm" class="admin-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required placeholder="Choose a username">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email ID</label>
+                        <input type="email" id="email" name="email" required placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" id="dob" name="dob" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mobileNumber">Mobile Number</label>
+                        <input type="tel" id="mobileNumber" name="mobileNumber" required placeholder="Enter a 10-digit mobile number">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required placeholder="Create a password">
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                    </div>
+                    <div class="form-actions" style="margin-top: 25px;">
+                        <button type="submit" class="btn btn-primary btn-block">Send OTP</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="registerStep2" class="hidden">
+                <h2 style="text-align: center; margin-bottom: 20px;">Verify Your Mobile</h2>
+                <label for="registerOtp">Enter OTP</label>
+                <input type="text" id="registerOtp" name="registerOtp" required placeholder="Enter 6-digit OTP" class="form-group" style="width:100%; padding:10px;">
+                <div class="form-actions" style="margin-top: 25px;">
+                    <button type="submit" class="btn btn-primary btn-block">Register</button>
+                </div>
+                <p style="text-align: center; margin-top: 20px; font-size: 14px;">
+                    Already have an account? <a href="login.html">Login here</a>
+                </p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 LOKES SHOP. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const registerForm = document.getElementById('registerForm');
+            const registerStep1 = document.getElementById('registerStep1');
+            const registerStep2 = document.getElementById('registerStep2');
+            const finalRegisterBtn = registerStep2.querySelector('button');
+            const demoOtp = '123456'; // Here is our demo OTP
+
+            registerForm.addEventListener('submit', (e) => {
+                e.preventDefault(); // Prevent actual form submission
+                // In a real app, you would send an OTP. Here, we just show it.
+                alert('This is a demo. Your OTP is: ' + demoOtp);
+                registerStep1.classList.add('hidden');
+                registerStep2.classList.remove('hidden');
+            });
+
+            finalRegisterBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const enteredOtp = document.getElementById('registerOtp').value;
+
+                if (enteredOtp === demoOtp) {
+                    alert('The registration was successful');
+                    window.location.href = 'login.html';
+                } else {
+                    alert('Invalid OTP. Please try again.');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
