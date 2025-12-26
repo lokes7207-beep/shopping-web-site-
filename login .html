@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LOKES SHOP</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional styles for login page */
+        :root {
+            --primary-color: #003366; /* Accent: Deep Blue */
+            --light-gray-bg: #F5F5F5; /* Primary: Light Gray */
+            --dark-text: #003366;     /* Accent: Deep Blue */
+            --border-color: #008080; /* Highlight: Teal */
+        }
+
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: calc(100vh - 131px); /* Full height minus navbar and footer */
+            padding: 40px 20px;
+            /* Electronic Items Background */
+            background: url('https://images.unsplash.com/photo-1550009158-9ebf69173e03?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover;
+        }
+        .form-wrapper {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            z-index: 2; /* Ensure form is above the background text */
+        }
+        .form-wrapper h1 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: var(--dark-text);
+        }
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .form-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Background Animation */
+        .background-animation {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .background-animation span {
+            position: absolute;
+            display: block;
+            list-style: none;
+            font-size: 2vw;
+            color: rgba(255, 255, 255, 0.2); /* Light color for galaxy background */
+            bottom: -150px;
+            animation: animate-items 25s linear infinite;
+        }
+
+        .background-animation span:nth-child(1) { left: 25%; animation-delay: 0s; font-size: 4vw; }
+        .background-animation span:nth-child(2) { left: 10%; animation-delay: 2s; animation-duration: 12s; font-size: 3vw; }
+        .background-animation span:nth-child(3) { left: 70%; animation-delay: 4s; font-size: 2.5vw; }
+        .background-animation span:nth-child(4) { left: 40%; animation-delay: 0s; animation-duration: 18s; font-size: 5vw; }
+        .background-animation span:nth-child(5) { left: 65%; animation-delay: 0s; font-size: 3.5vw; }
+        .background-animation span:nth-child(6) { left: 75%; animation-delay: 3s; font-size: 2vw; }
+        .background-animation span:nth-child(7) { left: 35%; animation-delay: 7s; font-size: 4.5vw; }
+        .background-animation span:nth-child(8) { left: 50%; animation-delay: 15s; animation-duration: 45s; font-size: 2.5vw; }
+        .background-animation span:nth-child(9) { left: 20%; animation-delay: 2s; animation-duration: 35s; font-size: 3vw; }
+        .background-animation span:nth-child(10) { left: 85%; animation-delay: 0s; animation-duration: 11s; font-size: 4vw; }
+
+        @keyframes animate-items {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">LOKES SHOP</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Shop</a></li>
+                <li><a href="cart.html">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+                <li><a href="admin.html">Admin</a></li>
+                <li><a href="login.html" class="active">Login</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="login-container">
+        <!-- Background Animation -->
+        <div class="background-animation">
+            <span>💻</span>
+            <span>📱</span>
+            <span>🎧</span>
+            <span>📷</span>
+            <span>🎮</span>
+            <span>⌚</span>
+            <span>⌨️</span>
+            <span>🖱️</span>
+            <span>🔌</span>
+            <span>🔋</span>
+            <span>💾</span>
+        </div>
+
+        <!-- Login Form -->
+        <div id="loginForm" class="form-wrapper">
+            <h1>Login</h1>
+            <div class="form-group">
+                <label for="email">Email or Username</label>
+                <input type="text" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+            <button id="loginBtn" class="btn btn-primary btn-block">Login</button>
+            <div class="form-footer">
+                <a href="#" id="forgotPasswordLink">Forgot password?</a>
+                <p style="margin-top: 15px; font-size: 14px;">
+                    Don't have an account? <a href="register.html">New Register</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgotPasswordForm" class="form-wrapper hidden">
+            <h1>Forgot Password</h1>
+            <div class="form-group">
+                <label for="mobileNumber">Mobile Number</label>
+                <input type="tel" id="mobileNumber" required>
+            </div>
+            <button id="sendOtpBtn" class="btn btn-primary btn-block">Send OTP</button>
+            <div class="form-footer">
+                <a href="#" id="backToLoginLink1">Back to Login</a>
+            </div>
+        </div>
+
+        <!-- OTP Verification Form -->
+        <div id="otpVerificationForm" class="form-wrapper hidden">
+            <h1>OTP Verification</h1>
+            <div class="form-group">
+                <label for="otpInput">Enter OTP</label>
+                <input type="text" id="otpInput" required placeholder="Enter 6-digit OTP">
+            </div>
+            <button id="verifyOtpBtn" class="btn btn-primary btn-block">Verify OTP</button>
+            <div class="form-footer">
+                <a href="#" id="backToLoginLink2">Back to Login</a>
+            </div>
+        </div>
+
+        <!-- New Password Form -->
+        <div id="newPasswordForm" class="form-wrapper hidden">
+            <h1>Set New Password</h1>
+            <div class="form-group">
+                <label for="newPassword">New Password</label>
+                <input type="password" id="newPassword" required>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirm New Password</label>
+                <input type="password" id="confirmPassword" required>
+            </div>
+            <button id="changePasswordBtn" class="btn btn-primary btn-block">Change Password</button>
+            <div class="form-footer">
+                <a href="#" id="backToLoginLink3">Back to Login</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2025 LOKES SHOP. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const loginForm = document.getElementById('loginForm');
+            const forgotPasswordForm = document.getElementById('forgotPasswordForm');
+            const otpVerificationForm = document.getElementById('otpVerificationForm');
+            const newPasswordForm = document.getElementById('newPasswordForm');
+
+            const forgotPasswordLink = document.getElementById('forgotPasswordLink');
+            const loginBtn = document.getElementById('loginBtn');
+            const sendOtpBtn = document.getElementById('sendOtpBtn');
+            const verifyOtpBtn = document.getElementById('verifyOtpBtn');
+            const changePasswordBtn = document.getElementById('changePasswordBtn');
+
+            const backToLoginLinks = document.querySelectorAll('#backToLoginLink1, #backToLoginLink2, #backToLoginLink3');
+
+            // --- Navigation Functions ---
+            function showForm(formToShow) {
+                [loginForm, forgotPasswordForm, otpVerificationForm, newPasswordForm].forEach(form => {
+                    form.classList.add('hidden');
+                });
+                formToShow.classList.remove('hidden');
+            }
+
+            // --- Event Listeners ---
+            forgotPasswordLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showForm(forgotPasswordForm);
+            });
+
+            backToLoginLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    showForm(loginForm);
+                });
+            });
+
+            // Placeholder for login functionality
+            loginBtn.addEventListener('click', (e) => {
+                e.preventDefault(); 
+
+                // 1. Simulate a successful login by setting a session item.
+                sessionStorage.setItem('loggedInUser', JSON.stringify({ username: 'demoUser' }));
+
+                alert('Login has successful!');
+
+                // 2. Check if there was a page we need to redirect back to.
+                const redirectUrl = sessionStorage.getItem('redirectAfterLogin');
+                sessionStorage.removeItem('redirectAfterLogin'); // Clean up the item
+
+                // 3. Redirect to the intended page or the home page.
+                window.location.href = redirectUrl || 'index.html';
+            });
+
+            // --- Forgot Password Flow ---
+            sendOtpBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent form submission
+                const mobile = document.getElementById('mobileNumber').value;
+                if (mobile.length >= 10) {
+                    alert('OTP sent to your mobile number!');
+                    showForm(otpVerificationForm);
+                } else {
+                    alert('Please enter a valid mobile number.');
+                }
+            });
+
+            verifyOtpBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const otp = document.getElementById('otpInput').value;
+                if (otp.length === 6) { // Simple OTP check
+                    alert('OTP verified successfully!');
+                    showForm(newPasswordForm);
+                } else {
+                    alert('Invalid OTP. Please try again.');
+                }
+            });
+
+            changePasswordBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                alert('Password has been changed successfully!');
+                showForm(loginForm);
+            });
+        });
+    </script>
+</body>
+</html>
